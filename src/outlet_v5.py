@@ -12,7 +12,9 @@ import utime
 esp.osdebug(None)
 
 print("Outlet Transmitter: MQTT Code")
+
 def blink1():
+	#used to blink the red led
 	outlet_light1.on()
 	time.sleep(.25)
 	outlet_light1.off()
