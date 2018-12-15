@@ -12,7 +12,12 @@ import utime
 esp.osdebug(None)
 
 print("Outlet Transmitter: MQTT Code")
-
+def blink1():
+	outlet_light1.on()
+	time.sleep(.25)
+	outlet_light1.off()
+	time.sleep(.25)
+	
 def transmit(switch_cntrl, light1,light2,sw, topic,name="outlet_default", server="192.168.1.90",err_slp=100,err_rst=150):
 	print("Starting MQTT transmitter...")
 
@@ -32,14 +37,8 @@ def transmit(switch_cntrl, light1,light2,sw, topic,name="outlet_default", server
 	#flash the blue light so user has indication that outlet is working
 	outlet_light2.on()
 	time.sleep(.25)
-	outlet_light1.on()
-	time.sleep(.25)
-	outlet_light1.off()
-	time.sleep(.25)
-	outlet_light1.on()
-	time.sleep(.25)
-	outlet_light1.off()
-	time.sleep(.25)
+	blink1()
+	blink1()
 	outlet_light1.on()
 
 	#define the channels
